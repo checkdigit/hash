@@ -1,6 +1,6 @@
 # Check Digit Hash
 
-Hash is a small function for Check Digit services to create a derivable uuid based on a hashed value.
+Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.
 
 ### Install
 
