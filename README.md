@@ -1,36 +1,23 @@
-# Check Digit < Insert name > Library
+# Check Digit Hash
 
-The Check Digit < Insert Name >  library is a library for Check Digit services to deal with [ short description about what the library does]
-  
-  Features:
-* Feature 1
-* Feature 2
-* Feature3
-* (...)
+Hash is a small function for Check Digit services to create a derivable uuid based on a hashed value.
 
+### Install
 
-
-### Installing
-
-`npm install @checkdigit/< Insert name >` 
+```
+$ npm install @checkdigit/hash
+```
+ 
 
 ### Use
-It could be. i.e.
-```
-import * as insertName from '@checkdigit/< Insert name >';
-
-const someVariable = insertName();
 
 ```
+import { hash } from '@checkdigit/hash';
 
-Or if it can be called as a script. i.e.
+const derivedUUID = hash('some value');
 ```
-insert-name -b src/package.json
-```
-
 
 ### Links
 
-* Company website: [your.website.url]
-* Npm: [npm.url]
+* Company website: https://checkdigit.com
     

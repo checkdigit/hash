@@ -1,7 +1,7 @@
 {
-  "name": "@checkdigit/library-template",
+  "name": "@checkdigit/hash",
   "version": "0.0.1",
-  "description": "A short description of the intended use of the library",
+  "description": "Create a derivable uuid based on a hashed value.",
   "typings": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "prettier": "@checkdigit/prettier-config",
@@ -11,20 +11,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/checkdigit/library-template.git"
+    "url": "git+https://github.com/checkdigit/hash.git"
   },
   "author": "Check Digit, LLC",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/checkdigit/library-template/issues"
+    "url": "https://github.com/checkdigit/hash/issues"
   },
-  "homepage": "https://github.com/checkdigit/library-template#readme",
+  "homepage": "https://github.com/checkdigit/hash#readme",
   "devDependencies": {
     "@checkdigit/eslint-config": "3.3.5",
     "@checkdigit/prettier-config": "^1.0.1",
     "@checkdigit/publish": "^1.0.14",
     "@checkdigit/typescript": "^3.9.3",
     "@types/jest": "^26.0.0",
+    "@types/uuid": "^8.3.0",
     "eslint": "^7.3.0",
     "jest": "^26.0.1",
     "prettier": "^2.0.5",
@@ -50,5 +51,9 @@
     "prettier": "prettier --list-different 'src/**/*.ts'",
     "prettier:fix": "prettier --write 'src/**/*.ts'",
     "test": "jest && npm run lint && npm run prettier"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "uuid": "^8.3.0"
   }
 }
