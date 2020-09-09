@@ -1,6 +1,6 @@
-# Check Digit Hash
+# Hash
 
-Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.
+Hash is a small function for Check Digit services to create a UUID derived from a hash generated from a given value.
 
 ### Install
 
@@ -17,7 +17,5 @@ import { hash } from '@checkdigit/hash';
 const derivedUUID = hash('some value');
 ```
 
-### Links
-
-* Company website: https://checkdigit.com
+Check Digit: https://checkdigit.com
     
