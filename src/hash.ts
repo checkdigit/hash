@@ -1,5 +1,11 @@
 // hash.ts
 
+/*
+ * Copyright (c) 2021 Check Digit, LLC
+ *
+ * This code is licensed under the MIT license (see LICENSE.txt for details).
+ */
+
 import { createHash } from 'crypto';
 import { v5 as uuidV5 } from 'uuid';
 

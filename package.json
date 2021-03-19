@@ -51,7 +51,7 @@
     "lint:fix": "eslint -f unix 'src/**/*.ts' --fix",
     "prettier": "prettier --list-different 'src/**/*.ts'",
     "prettier:fix": "prettier --write 'src/**/*.ts'",
-    "test": "tsc && jest && npm run lint && npm run prettier"
+    "test": "tsc --noEmit && jest && npm run lint && npm run prettier"
   },
   "dependencies": {
     "uuid": "^8.3.2"
