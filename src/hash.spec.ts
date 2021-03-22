@@ -19,7 +19,7 @@ describe('hash', () => {
     assert.strictEqual(result1, result2);
   });
 
-  it('always returns the same value', () => {
+  it('hash always returns the same value', () => {
     assert.strictEqual(hash('Hello World!'), '74caf525-c85a-5a3c-9d53-bef0507c21e4');
     assert.strictEqual(hash('d1253ec1-14bc-4c56-8e09-4450ab4c8a55'), '14abff19-2c5f-5408-af3d-3c6526ebea73');
     assert.strictEqual(hash('Råma Ghantå'), '8a28bfef-8fa2-52de-b9c5-1d5a6d7ba5fe');
@@ -32,6 +32,6 @@ describe('hash', () => {
     assert.strictEqual(hash('nfv8yFRghIJV6ffFr2dJGi1978GPnUuc7JVi2/FPqHE='), 'e90938db-61fb-55b4-8ebe-4e1518e4fe97');
     // eslint-disable-next-line @checkdigit/no-card-numbers
     assert.strictEqual(hash('5111111111111118'), '87e25c4b-c395-585e-9ecf-43d190f6e62f');
-    assert.strictEqual(hash(JSON.stringify({ a: 'abc', b: 123, c: 'def' })), '40fef624-32bc-54bd-98d8-8dc5516b7192');
+    assert.strictEqual(hash('https://checkdigit.com'), '2c391f52-ec24-5945-8c28-88f74d12b55d');
   });
 });

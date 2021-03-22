@@ -7,4 +7,4 @@
  */
 
 export { default } from './hash';
-export { default as hash } from './hash';
+export { default as hash, HASH_NAMESPACE } from './hash';
