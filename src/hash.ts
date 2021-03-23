@@ -1,9 +1,16 @@
 // hash.ts
 
-import { createHash } from 'crypto';
-import { v5 as uuidV5 } from 'uuid';
+/*
+ * Copyright (c) 2021 Check Digit, LLC
+ *
+ * This code is licensed under the MIT license (see LICENSE.txt for details).
+ */
 
-const HASH_NAMESPACE = 'f25d4515-fea7-44c7-8baf-f3ca50865e66';
+import { createHash } from 'crypto';
+
+import uuidV5 from './uuidV5';
+
+export const HASH_NAMESPACE = 'f25d4515-fea7-44c7-8baf-f3ca50865e66';
 
 /**
  * @param value - a string to be hashed and converted into a derived uuid
