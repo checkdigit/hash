@@ -4,6 +4,7 @@
   "description": "Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.",
   "typings": "./dist/index.d.ts",
   "main": "./dist/index.js",
+  "browser": "./dist/index-browser.js",
   "prettier": "@checkdigit/prettier-config",
   "engines": {
     "node": ">=12.18",
@@ -25,6 +26,7 @@
     "@checkdigit/publish": "^1.0.18",
     "@checkdigit/typescript-config": "^1.0.5",
     "@types/jest": "^26.0.21",
+    "@types/node": "^18.7.17",
     "@types/uuid": "^8.3.0",
     "eslint": "^7.22.0",
     "jest": "^26.6.3",
@@ -40,7 +42,8 @@
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/node_modules/"
-    ]
+    ],
+    "setupFilesAfterEnv": ["<rootDir>/jest.crypto-setup.ts"]
   },
   "scripts": {
     "prepublishOnly": "publish",
@@ -52,6 +55,5 @@
     "prettier": "prettier --list-different 'src/**/*.ts'",
     "prettier:fix": "prettier --write 'src/**/*.ts'",
     "test": "tsc --noEmit && jest && npm run prettier && npm run lint"
-  },
-  "dependencies": {}
+  }
 }

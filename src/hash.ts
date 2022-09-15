@@ -8,9 +8,10 @@
 
 import { createHash } from 'crypto';
 
-import uuidV5 from './uuidV5';
+import { HASH_NAMESPACE } from './namespace';
+import uuidV5 from './uuid-v5';
 
-export const HASH_NAMESPACE = 'f25d4515-fea7-44c7-8baf-f3ca50865e66';
+export { HASH_NAMESPACE };
 
 /**
  * @param value - a string to be hashed and converted into a derived uuid
