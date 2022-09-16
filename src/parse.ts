@@ -1,6 +1,5 @@
 // parse.ts
 
-// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable no-bitwise,no-magic-numbers,prefer-template */
 export default function parse(namespace: string): Uint8Array {
   let value;
@@ -35,3 +34,4 @@ export default function parse(namespace: string): Uint8Array {
 
   return intArray;
 }
+/* eslint-enable no-bitwise,no-magic-numbers,prefer-template */

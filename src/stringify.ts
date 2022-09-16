@@ -2,7 +2,6 @@
 
 import validateUuid from './validate-uuid';
 
-// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable no-magic-numbers,prefer-template */
 
 /**

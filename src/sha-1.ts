@@ -1,6 +1,5 @@
 // sha-1.ts
 
-// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable no-bitwise,no-magic-numbers,prefer-template,id-length */
 
 // Adapted from Chris Veness' SHA1 code at
