@@ -9,7 +9,6 @@ Hash is a small function for Check Digit services to create a UUID derived from 
 ```
 $ npm install @checkdigit/hash
 ```
- 
 
 ### Use
 

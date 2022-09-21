@@ -43,8 +43,13 @@
     "postversion": "git push && git push --tags",
     "lint": "eslint -f unix 'src/**/*.ts'",
     "lint:fix": "eslint -f unix 'src/**/*.ts' --fix",
-    "prettier": "prettier --list-different 'src/**/*.ts'",
-    "prettier:fix": "prettier --write 'src/**/*.ts'",
-    "test": "tsc --noEmit && jest && npm run prettier && npm run lint"
+    "prettier": "prettier --list-different .",
+    "prettier:fix": "prettier --write .",
+    "test": "npm run ci:compile && npm run ci:test && npm run ci:style && npm run ci:lint",
+    "ci:compile": "tsc --noEmit",
+    "ci:test": "jest --coverage=false",
+    "ci:coverage": "jest --coverage=true",
+    "ci:lint": "npm run lint",
+    "ci:style": "npm run prettier"
   }
 }
