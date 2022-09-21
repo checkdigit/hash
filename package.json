@@ -22,7 +22,6 @@
     "@checkdigit/eslint-config": "^7.2.3",
     "@checkdigit/jest-config": "^2.0.0",
     "@checkdigit/prettier-config": "^3.0.0",
-    "@checkdigit/publish": "^1.1.1",
     "@checkdigit/typescript-config": "^3.1.0",
     "@types/uuid": "^8.3.4",
     "rimraf": "^3.0.2",
@@ -37,10 +36,6 @@
     "preset": "@checkdigit/jest-config"
   },
   "scripts": {
-    "prepublishOnly": "publish",
-    "postpublish": "rimraf dist .npmignore",
-    "preversion": "npm test",
-    "postversion": "git push && git push --tags",
     "lint": "eslint -f unix 'src/**/*.ts'",
     "lint:fix": "eslint -f unix 'src/**/*.ts' --fix",
     "prettier": "prettier --list-different .",
