@@ -6,7 +6,7 @@
  * This code is licensed under the MIT license (see LICENSE.txt for details).
  */
 
-import assert from 'assert';
+import assert from 'node:assert';
 import { validate } from 'uuid';
 
 import hash from './hash';

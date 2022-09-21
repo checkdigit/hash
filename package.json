@@ -6,8 +6,7 @@
   "main": "./dist/index.js",
   "prettier": "@checkdigit/prettier-config",
   "engines": {
-    "node": ">=12.18",
-    "npm": ">=6.14"
+    "node": ">=16"
   },
   "repository": {
     "type": "git",
@@ -20,27 +19,22 @@
   },
   "homepage": "https://github.com/checkdigit/hash#readme",
   "devDependencies": {
-    "@checkdigit/eslint-config": "3.4.2",
-    "@checkdigit/prettier-config": "^1.0.2",
-    "@checkdigit/publish": "^1.0.18",
-    "@checkdigit/typescript-config": "^1.0.5",
-    "@types/jest": "^26.0.21",
-    "@types/uuid": "^8.3.0",
-    "eslint": "^7.22.0",
-    "jest": "^26.6.3",
-    "prettier": "^2.2.1",
+    "@checkdigit/eslint-config": "^7.2.3",
+    "@checkdigit/jest-config": "^2.0.0",
+    "@checkdigit/prettier-config": "^3.0.0",
+    "@checkdigit/publish": "^1.1.1",
+    "@checkdigit/typescript-config": "^3.1.0",
+    "@types/uuid": "^8.3.4",
     "rimraf": "^3.0.2",
-    "ts-jest": "^26.5.4",
-    "typescript": "^4.2.3",
-    "uuid": "^8.3.2"
+    "uuid": "^9.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@checkdigit/eslint-config"
+    ]
   },
   "jest": {
-    "collectCoverage": true,
-    "preset": "ts-jest",
-    "testPathIgnorePatterns": [
-      "<rootDir>/build/",
-      "<rootDir>/node_modules/"
-    ]
+    "preset": "@checkdigit/jest-config"
   },
   "scripts": {
     "prepublishOnly": "publish",
@@ -52,6 +46,5 @@
     "prettier": "prettier --list-different 'src/**/*.ts'",
     "prettier:fix": "prettier --write 'src/**/*.ts'",
     "test": "tsc --noEmit && jest && npm run prettier && npm run lint"
-  },
-  "dependencies": {}
+  }
 }
