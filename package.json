@@ -36,6 +36,7 @@
     "preset": "@checkdigit/jest-config"
   },
   "scripts": {
+    "postversion": "git push && git push --tags",
     "lint": "eslint -f unix 'src/**/*.ts'",
     "lint:fix": "eslint -f unix 'src/**/*.ts' --fix",
     "prettier": "prettier --list-different .",
