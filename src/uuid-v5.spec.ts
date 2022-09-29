@@ -58,10 +58,7 @@ describe('same V5 tests as in https://github.com/uuidjs/uuid', () => {
   it('v5 namespace.toUpperCase', () => {
     assert.equal(uuidV5('hello.example.com', v5.DNS.toUpperCase()), 'fdda765f-fc57-5604-a269-52a7df8164ec');
 
-    assert.equal(
-      uuidV5('http://example.com/hello', v5.URL.toUpperCase()),
-      '3bbcee75-cecc-5b56-8031-b6641c1ed1f1'
-    );
+    assert.equal(uuidV5('http://example.com/hello', v5.URL.toUpperCase()), '3bbcee75-cecc-5b56-8031-b6641c1ed1f1');
 
     assert.equal(
       uuidV5('hello', '0f5abcd1-c194-47f3-905b-2df7263a084b'.toUpperCase()),
