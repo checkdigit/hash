@@ -4,6 +4,9 @@
   "description": "Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.",
   "typings": "./dist/index.d.ts",
   "main": "./dist/index.js",
+  "files": [
+    "index.js"
+  ],
   "prettier": "@checkdigit/prettier-config",
   "engines": {
     "node": ">=12.18",
