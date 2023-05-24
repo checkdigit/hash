@@ -6,8 +6,9 @@ on:
       - 'main'
 
 jobs:
-  comment:
+  publishBeta:
     runs-on: ubuntu-latest
+    name: Publish Beta
     strategy:
       matrix:
         node-version: [18.x]
