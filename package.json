@@ -2,8 +2,14 @@
   "name": "@checkdigit/hash",
   "version": "2.0.0",
   "description": "Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.",
-  "typings": "./dist/index.d.ts",
-  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./build-mjs/index.d.ts",
+      "require": "./dist-cjs/index.cjs",
+      "import": "./dist-mjs/index.mjs",
+      "default": "./dist-mjs/index.mjs"
+    }
+  },
   "files": [
     "dist",
     "SECURITY.md"
@@ -40,6 +46,9 @@
     "preset": "@checkdigit/jest-config"
   },
   "scripts": {
+    "build:dist": "npm run build:dist-cjs && npm run build:dist-esm",
+    "build:dist-cjs": "rimraf dist-cjs && npx builder --type=commonjs --outDir=dist-cjs",
+    "build:dist-esm": "rimraf dist-esm && npx builder --type=module --outDir=dist-mjs",
     "prettier": "prettier --ignore-path .gitignore --list-different .",
     "prettier:fix": "prettier --ignore-path .gitignore --write .",
     "lint:fix": "eslint -f unix --ext .ts,.mts src --fix",
