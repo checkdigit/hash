@@ -12,7 +12,11 @@
   },
   "files": [
     "dist-cjs",
+    "!dist-cjs/**/*.test.cjs",
+    "!dist-cjs/**/*.spec.cjs",
     "dist-mjs",
+    "!dist-mjs/**/*.test.mjs",
+    "!dist-mjs/**/*.spec.mjs",
     "SECURITY.md"
   ],
   "prettier": "@checkdigit/prettier-config",
