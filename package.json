@@ -11,7 +11,8 @@
     }
   },
   "files": [
-    "dist",
+    "dist-cjs",
+    "dist-mjs",
     "SECURITY.md"
   ],
   "prettier": "@checkdigit/prettier-config",
@@ -46,7 +47,7 @@
     "preset": "@checkdigit/jest-config"
   },
   "scripts": {
-    "build:dist": "npm run build:dist-cjs && npm run build:dist-esm",
+    "prepublishOnly": "npm run build:dist-cjs && npm run build:dist-esm && rimraf .github tsconfig.json",
     "build:dist-cjs": "rimraf dist-cjs && npx builder --type=commonjs --outDir=dist-cjs",
     "build:dist-esm": "rimraf dist-esm && npx builder --type=module --outDir=dist-mjs",
     "prettier": "prettier --ignore-path .gitignore --list-different .",

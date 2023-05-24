@@ -26,10 +26,9 @@ jobs:
         run: npm audit signatures
       - name: Run Test
         run: npm run ci:test
-      - name: Build dist folders
-        run: npm run build:dist
-      - name: Publish Beta
+      - name: Prepare Beta
         uses: checkdigit/github-actions/prepare-beta@prepare-beta
+      - name: Publish
+        run: npm publish
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
