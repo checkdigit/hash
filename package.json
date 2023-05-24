@@ -11,9 +11,12 @@
     }
   },
   "files": [
+    "src",
     "dist-types",
     "dist-cjs",
     "dist-mjs",
+    "!src/**/*.test.ts",
+    "!src/**/*.spec.ts",
     "!dist-types/**/*.test.d.ts",
     "!dist-types/**/*.spec.d.ts",
     "!dist-cjs/**/*.test.cjs",
@@ -56,8 +59,8 @@
   "scripts": {
     "prepublishOnly": "npm run build:dist-types && npm run build:dist-cjs && npm run build:dist-esm",
     "build:dist-types": "rimraf dist-types && npx builder --type=types --outDir=dist-types",
-    "build:dist-cjs": "rimraf dist-cjs && npx builder --type=commonjs --outDir=dist-cjs",
-    "build:dist-esm": "rimraf dist-esm && npx builder --type=module --outDir=dist-mjs",
+    "build:dist-cjs": "rimraf dist-cjs && npx builder --type=commonjs --sourceMap --outDir=dist-cjs",
+    "build:dist-esm": "rimraf dist-esm && npx builder --type=module --sourceMap --outDir=dist-mjs",
     "prettier": "prettier --ignore-path .gitignore --list-different .",
     "prettier:fix": "prettier --ignore-path .gitignore --write .",
     "lint:fix": "eslint -f unix --ext .ts,.mts src --fix",
