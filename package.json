@@ -4,17 +4,20 @@
   "description": "Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.",
   "exports": {
     ".": {
-      "types": "./dist-mjs/index.d.ts",
+      "types": "./dist-types/index.d.ts",
       "require": "./dist-cjs/index.cjs",
       "import": "./dist-mjs/index.mjs",
       "default": "./dist-mjs/index.mjs"
     }
   },
   "files": [
+    "dist-types",
     "dist-cjs",
+    "dist-mjs",
+    "!dist-types/**/*.test.d.ts",
+    "!dist-types/**/*.spec.d.ts",
     "!dist-cjs/**/*.test.cjs",
     "!dist-cjs/**/*.spec.cjs",
-    "dist-mjs",
     "!dist-mjs/**/*.test.mjs",
     "!dist-mjs/**/*.spec.mjs",
     "SECURITY.md"
@@ -37,7 +40,7 @@
     "@checkdigit/eslint-config": "^7.8.0",
     "@checkdigit/jest-config": "^2.2.1",
     "@checkdigit/prettier-config": "^3.4.0",
-    "@checkdigit/typescript-config": "^3.4.0",
+    "@checkdigit/typescript-config": "^3.5.0",
     "@types/uuid": "^9.0.1",
     "rimraf": "^5.0.1",
     "uuid": "^9.0.0"
@@ -51,7 +54,8 @@
     "preset": "@checkdigit/jest-config"
   },
   "scripts": {
-    "prepublishOnly": "npm run build:dist-cjs && npm run build:dist-esm && rimraf .github tsconfig.json",
+    "prepublishOnly": "npm run build:dist-types && npm run build:dist-cjs && npm run build:dist-esm",
+    "build:dist-types": "rimraf dist-types && npx builder --type=types --outDir=dist-types",
     "build:dist-cjs": "rimraf dist-cjs && npx builder --type=commonjs --outDir=dist-cjs",
     "build:dist-esm": "rimraf dist-esm && npx builder --type=module --outDir=dist-mjs",
     "prettier": "prettier --ignore-path .gitignore --list-different .",
