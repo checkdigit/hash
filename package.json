@@ -4,7 +4,7 @@
   "description": "Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.",
   "exports": {
     ".": {
-      "types": "./build-mjs/index.d.ts",
+      "types": "./dist-mjs/index.d.ts",
       "require": "./dist-cjs/index.cjs",
       "import": "./dist-mjs/index.mjs",
       "default": "./dist-mjs/index.mjs"
