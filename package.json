@@ -1,16 +1,33 @@
 {
   "name": "@checkdigit/hash",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.",
-  "typings": "./dist/index.d.ts",
-  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "require": "./dist-cjs/index.cjs",
+      "import": "./dist-mjs/index.mjs",
+      "default": "./dist-mjs/index.mjs"
+    }
+  },
   "files": [
-    "index.js"
+    "src",
+    "dist-types",
+    "dist-cjs",
+    "dist-mjs",
+    "!src/**/*.test.ts",
+    "!src/**/*.spec.ts",
+    "!dist-types/**/*.test.d.ts",
+    "!dist-types/**/*.spec.d.ts",
+    "!dist-cjs/**/*.test.cjs",
+    "!dist-cjs/**/*.spec.cjs",
+    "!dist-mjs/**/*.test.mjs",
+    "!dist-mjs/**/*.spec.mjs",
+    "SECURITY.md"
   ],
   "prettier": "@checkdigit/prettier-config",
   "engines": {
-    "node": ">=12.18",
-    "npm": ">=6.14"
+    "node": ">=16"
   },
   "repository": {
     "type": "git",
@@ -23,12 +40,12 @@
   },
   "homepage": "https://github.com/checkdigit/hash#readme",
   "devDependencies": {
-    "@checkdigit/eslint-config": "^7.5.0",
-    "@checkdigit/jest-config": "^2.1.0",
-    "@checkdigit/prettier-config": "^3.2.0",
-    "@checkdigit/typescript-config": "^3.2.0",
+    "@checkdigit/eslint-config": "^7.8.0",
+    "@checkdigit/jest-config": "^2.2.1",
+    "@checkdigit/prettier-config": "^3.4.0",
+    "@checkdigit/typescript-config": "^3.5.0",
     "@types/uuid": "^9.0.1",
-    "rimraf": "^4.4.0",
+    "rimraf": "^5.0.1",
     "uuid": "^9.0.0"
   },
   "eslintConfig": {
@@ -40,10 +57,14 @@
     "preset": "@checkdigit/jest-config"
   },
   "scripts": {
+    "prepublishOnly": "npm run build:dist-types && npm run build:dist-cjs && npm run build:dist-esm",
+    "build:dist-types": "rimraf dist-types && npx builder --type=types --outDir=dist-types",
+    "build:dist-cjs": "rimraf dist-cjs && npx builder --type=commonjs --sourceMap --outDir=dist-cjs",
+    "build:dist-esm": "rimraf dist-esm && npx builder --type=module --sourceMap --outDir=dist-mjs",
     "prettier": "prettier --ignore-path .gitignore --list-different .",
     "prettier:fix": "prettier --ignore-path .gitignore --write .",
-    "lint": "eslint -f unix --ext .js,.ts 'src/**/*.ts'",
-    "lint:fix": "eslint -f unix --ext .js,.ts 'src/**/*.ts' --fix",
+    "lint:fix": "eslint -f unix --ext .ts,.mts src --fix",
+    "lint": "eslint -f unix --ext .ts,.mts src",
     "test": "npm run ci:compile && npm run ci:test && npm run ci:lint && npm run ci:style",
     "ci:compile": "tsc --noEmit",
     "ci:test": "jest --coverage=false",
