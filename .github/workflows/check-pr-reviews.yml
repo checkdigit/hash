@@ -14,3 +14,5 @@ jobs:
     steps:
       - name: Perform Check of PR Reviews
         uses: checkdigit/github-actions/check-pr-reviews@prepare-beta
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
