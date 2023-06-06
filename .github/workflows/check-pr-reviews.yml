@@ -1,0 +1,16 @@
+name: Check Pull Request Reviews
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  checkPrReviews:
+    runs-on: ubuntu-latest
+    name: Check PR Reviews
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: Perform Check of PR Reviews
+        uses: checkdigit/github-actions/check-pr-reviews@prepare-beta
