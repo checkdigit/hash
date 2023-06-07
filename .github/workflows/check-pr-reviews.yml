@@ -13,6 +13,6 @@ jobs:
         node-version: [18.x]
     steps:
       - name: Perform Check of PR Reviews
-        uses: checkdigit/github-actions/check-pr-reviews@prepare-beta
+        uses: checkdigit/github-actions/check-pr-reviews@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
