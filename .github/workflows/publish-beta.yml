@@ -33,3 +33,5 @@ jobs:
         run: npm publish --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
+      - name: Comment npm publish result
+        uses: checkdigit/github-actions/comment-npm-publish@main
