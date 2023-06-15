@@ -37,6 +37,6 @@ jobs:
       - name: Comment npm publish result
         uses: checkdigit/github-actions/comment-npm-publish@main
         with:
-          betaPackage: ${{ steps.prepare-beta.betaPackage }}
+          betaPackage: ${{ steps.prepare-beta.outputs.betaPackage }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
