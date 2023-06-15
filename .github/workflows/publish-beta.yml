@@ -28,6 +28,7 @@ jobs:
       - name: Run Test
         run: npm run ci:test
       - name: Prepare Beta
+        id: prepare-beta
         uses: checkdigit/github-actions/prepare-beta@main
       - name: Publish Beta
         run: npm publish --tag beta
@@ -35,5 +36,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
       - name: Comment npm publish result
         uses: checkdigit/github-actions/comment-npm-publish@main
+        with:
+          betaPackage: ${{ steps.prepare-beta.betaPackage }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
