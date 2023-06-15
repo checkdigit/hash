@@ -35,3 +35,5 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
       - name: Comment npm publish result
         uses: checkdigit/github-actions/comment-npm-publish@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
