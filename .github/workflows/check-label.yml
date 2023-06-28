@@ -25,3 +25,4 @@ jobs:
         uses: checkdigit/github-actions/check-label@check-label-action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEBUG: '*'
