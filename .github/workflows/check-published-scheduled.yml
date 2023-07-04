@@ -1,4 +1,4 @@
-name: Check Label
+name: Check Published
 
 on:
   workflow_dispatch:
