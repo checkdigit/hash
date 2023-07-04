@@ -1,6 +1,7 @@
 name: Check Label
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '37 08 * * 1'
 
