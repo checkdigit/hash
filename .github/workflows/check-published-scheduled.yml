@@ -3,10 +3,7 @@ name: Check Published
 on:
   workflow_dispatch:
   schedule:
-    - cron: '37 08 * * 1'
-  pull_request:
-    branches:
-      - 'main'
+    - cron: '37 08 * * *'
 
 jobs:
   checkPublished:
