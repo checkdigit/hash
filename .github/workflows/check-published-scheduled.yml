@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '37 08 * * *'
+  pull_request:
+    branches:
+      - 'main'
 
 jobs:
   checkPublished:
@@ -27,3 +30,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
           DEBUG: '*'
+          SLACK_PUBLISH_MISMATCH: ${{ secrets.SLACK_PUBLISH_MISMATCH }}
