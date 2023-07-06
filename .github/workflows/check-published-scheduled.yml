@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
       - name: Check Published
-        uses: checkdigit/github-actions/check-published@check-published
+        uses: checkdigit/github-actions/check-published@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
