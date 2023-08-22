@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     name: check failed actions
     if: always()
+    needs: publishBeta
     steps:
       - name: Report Status
         if: always()
