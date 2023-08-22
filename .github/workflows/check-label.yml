@@ -45,6 +45,7 @@ jobs:
         uses: checkdigit/github-actions/check-failed-actions@check-failed-actions
         with:
           failed: ${{ contains(needs.*.result, 'failure') }}
+          actionName: ${{ github.workflow }}
 #          status: ${{ job.status }}
         env:
           SLACK_FAILED_URL: ${{ secrets.SLACK_PUBLISH_MISMATCH }}
