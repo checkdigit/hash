@@ -44,7 +44,7 @@ jobs:
         if: always()
         uses: checkdigit/github-actions/check-failed-actions@check-failed-actions
         with:
-          status: ${{ contains(needs.*.result, 'failure') }}
+          failed: ${{ contains(needs.*.result, 'failure') }}
 #          status: ${{ job.status }}
         env:
           SLACK_FAILED_URL: ${{ secrets.SLACK_PUBLISH_MISMATCH }}
