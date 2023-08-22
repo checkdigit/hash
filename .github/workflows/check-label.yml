@@ -35,7 +35,6 @@ jobs:
         uses: checkdigit/github-actions/check-failed-actions@check-failed-actions
         with:
           status: ${{ job.status }}
-          notify_when: 'failure'
         env:
           SLACK_FAILED_URL: ${{ secrets.SLACK_PUBLISH_MISMATCH }}
           DEBUG: '*'
