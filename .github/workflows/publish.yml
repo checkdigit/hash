@@ -24,3 +24,18 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
+
+  checkFailed:
+    runs-on: ubuntu-latest
+    name: Check Failed Action
+    if: always()
+    needs: publish
+    steps:
+      - name: Check Failed
+        if: always()
+        uses: checkdigit/github-actions/check-failed-actions@check-failed-actions
+        with:
+          failed: ${{ contains(needs.*.result, 'failure') }}
+        env:
+          SLACK_FAILED_URL: ${{ secrets.SLACK_PUBLISH_MISMATCH }}
+          DEBUG: 'check-failed-action:*'
