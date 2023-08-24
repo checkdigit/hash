@@ -25,3 +25,18 @@ jobs:
         uses: checkdigit/github-actions/check-label@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  checkFailed:
+    runs-on: ubuntu-latest
+    name: Check Failed Action
+    if: always()
+    needs: publishBeta
+    steps:
+      - name: Check Failed
+        if: always()
+        uses: checkdigit/github-actions/check-failed-actions@check-failed-actions
+        with:
+          failed: ${{ contains(needs.*.result, 'failure') }}
+        env:
+          SLACK_FAILED_URL: ${{ secrets.SLACK_PUBLISH_MISMATCH }}
+          DEBUG: 'check-failed-action:*'
