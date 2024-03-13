@@ -42,4 +42,3 @@ jobs:
           betaPackage: ${{ steps.prepare-beta.outputs.betaPackage }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
