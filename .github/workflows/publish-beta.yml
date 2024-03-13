@@ -7,24 +7,26 @@ on:
 
 jobs:
   publishBeta:
-    runs-on: ubuntu-latest
     name: Publish Beta
-    strategy:
-      matrix:
-        node-version: [18.x]
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
+      - name: Check Label
+        uses: checkdigit/github-actions/check-label@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check Imports
+        uses: checkdigit/github-actions/check-imports@main
       - name: Install dependencies
         run: npm ci --ignore-scripts
-      - name: Audit Signatures
-        run: npm audit signatures
       - name: Run Test
         run: npm run ci:test
       - name: Prepare Beta
@@ -40,3 +42,4 @@ jobs:
           betaPackage: ${{ steps.prepare-beta.outputs.betaPackage }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
