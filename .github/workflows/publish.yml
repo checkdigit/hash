@@ -1,11 +1,13 @@
 name: Publish
+
 on:
   release:
     types: [created]
+
 jobs:
   publish:
-    name: Publish to NPM
     runs-on: ubuntu-latest
+    name: Publish to NPM
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -13,10 +15,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+      - name: Install latest npm
+        run: npm install -g npm@latest
       - name: Install Dependencies
         run: npm ci --ignore-scripts
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH }}
