@@ -1,6 +1,6 @@
 # Hash
 
-Copyright (c) 2021 [Check Digit, LLC](https://checkdigit.com)
+Copyright (c) 2021-2024 [Check Digit, LLC](https://checkdigit.com)
 
 Hash is a small function for Check Digit services to create a UUID derived from a hash generated from a given value.
 
