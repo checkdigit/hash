@@ -1,13 +1,14 @@
 // hash.spec.ts
 
 /*
- * Copyright (c) 2021-2023 Check Digit, LLC
+ * Copyright (c) 2021-2024 Check Digit, LLC
  *
  * This code is licensed under the MIT license (see LICENSE.txt for details).
  */
 
 import { strict as assert } from 'node:assert';
 import { validate } from 'uuid';
+import { describe, it } from '@jest/globals';
 
 import hash from './hash';
 
@@ -26,7 +27,7 @@ describe('hash', () => {
     assert.equal(
       // eslint-disable-next-line no-secrets/no-secrets
       hash('/hYSjdEGQI0DaVHCR0vZq0KeF5JLys3jSNvU9EzBMKKlSsC97xFd3wr+nrhzHhp1'),
-      '7cb123ec-2c42-5a8a-b358-adf113ee088d'
+      '7cb123ec-2c42-5a8a-b358-adf113ee088d',
     );
     // eslint-disable-next-line no-secrets/no-secrets
     assert.equal(hash('nfv8yFRghIJV6ffFr2dJGi1978GPnUuc7JVi2/FPqHE='), 'e90938db-61fb-55b4-8ebe-4e1518e4fe97');

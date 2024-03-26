@@ -1,13 +1,14 @@
 // uuid-v5.spec.ts
 
 /*
- * Copyright (c) 2021-2023 Check Digit, LLC
+ * Copyright (c) 2021-2024 Check Digit, LLC
  *
  * This code is licensed under the MIT license (see LICENSE.txt for details).
  */
 
 import { strict as assert } from 'node:assert';
 import { v5 } from 'uuid';
+import { describe, it } from '@jest/globals';
 
 import { HASH_NAMESPACE } from './hash';
 import uuidV5 from './uuid-v5';
@@ -17,28 +18,28 @@ describe('uuidV5', () => {
     assert.equal(uuidV5('Hello World!', HASH_NAMESPACE), v5('Hello World!', HASH_NAMESPACE));
     assert.equal(
       uuidV5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55', HASH_NAMESPACE),
-      v5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55', HASH_NAMESPACE)
+      v5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55', HASH_NAMESPACE),
     );
     assert.equal(
       uuidV5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55/abc/xyz', HASH_NAMESPACE),
-      v5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55/abc/xyz', HASH_NAMESPACE)
+      v5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55/abc/xyz', HASH_NAMESPACE),
     );
     assert.equal(
       uuidV5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55-ABC', HASH_NAMESPACE),
-      v5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55-ABC', HASH_NAMESPACE)
+      v5('d1253ec1-14bc-4c56-8e09-4450ab4c8a55-ABC', HASH_NAMESPACE),
     );
     assert.equal(uuidV5('Råma Ghantå', HASH_NAMESPACE), v5('Råma Ghantå', HASH_NAMESPACE));
     assert.equal(
       // eslint-disable-next-line no-secrets/no-secrets
       uuidV5('/hYSjdEGQI0DaVHCR0vZq0KeF5JLys3jSNvU9EzBMKKlSsC97xFd3wr+nrhzHhp1', HASH_NAMESPACE),
       // eslint-disable-next-line no-secrets/no-secrets
-      v5('/hYSjdEGQI0DaVHCR0vZq0KeF5JLys3jSNvU9EzBMKKlSsC97xFd3wr+nrhzHhp1', HASH_NAMESPACE)
+      v5('/hYSjdEGQI0DaVHCR0vZq0KeF5JLys3jSNvU9EzBMKKlSsC97xFd3wr+nrhzHhp1', HASH_NAMESPACE),
     );
     assert.equal(
       // eslint-disable-next-line no-secrets/no-secrets
       uuidV5('nfv8yFRghIJV6ffFr2dJGi1978GPnUuc7JVi2/FPqHE=', HASH_NAMESPACE),
       // eslint-disable-next-line no-secrets/no-secrets
-      v5('nfv8yFRghIJV6ffFr2dJGi1978GPnUuc7JVi2/FPqHE=', HASH_NAMESPACE)
+      v5('nfv8yFRghIJV6ffFr2dJGi1978GPnUuc7JVi2/FPqHE=', HASH_NAMESPACE),
     );
     // eslint-disable-next-line @checkdigit/no-card-numbers
     assert.equal(uuidV5('5111111111111118', HASH_NAMESPACE), v5('5111111111111118', HASH_NAMESPACE));
@@ -60,7 +61,7 @@ describe('uuidV5', () => {
 
     assert.equal(
       uuidV5('hello', '0f5abcd1-c194-47f3-905b-2df7263a084b'.toUpperCase()),
-      '90123e1c-7512-523e-bb28-76fab9f2f73d'
+      '90123e1c-7512-523e-bb28-76fab9f2f73d',
     );
   });
 });
