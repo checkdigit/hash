@@ -1,6 +1,6 @@
 {
   "name": "@checkdigit/hash",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Hash is a small function for Check Digit services to create a uuid derived from a hash generated from a given value.",
   "type": "module",
   "exports": {
