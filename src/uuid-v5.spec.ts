@@ -1,17 +1,18 @@
 // uuid-v5.spec.ts
 
 /*
- * Copyright (c) 2021-2024 Check Digit, LLC
+ * Copyright (c) 2021-2025 Check Digit, LLC
  *
  * This code is licensed under the MIT license (see LICENSE.txt for details).
  */
 
 import { strict as assert } from 'node:assert';
-import { v5 } from 'uuid';
-import { describe, it } from '@jest/globals';
+import { describe, it } from 'node:test';
 
-import { HASH_NAMESPACE } from './hash';
-import uuidV5 from './uuid-v5';
+import { v5 } from 'uuid';
+
+import { HASH_NAMESPACE } from './hash.ts';
+import uuidV5 from './uuid-v5.ts';
 
 describe('uuidV5', () => {
   it('uuidV5 result matches v5(https://github.com/uuidjs/uuid) result', () => {

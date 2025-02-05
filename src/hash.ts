@@ -1,14 +1,14 @@
 // hash.ts
 
 /*
- * Copyright (c) 2021-2024 Check Digit, LLC
+ * Copyright (c) 2021-2025 Check Digit, LLC
  *
  * This code is licensed under the MIT license (see LICENSE.txt for details).
  */
 
 import { createHash } from 'node:crypto';
 
-import uuidV5 from './uuid-v5';
+import uuidV5 from './uuid-v5.ts';
 
 // eslint-disable-next-line @checkdigit/no-uuid
 export const HASH_NAMESPACE = 'f25d4515-fea7-44c7-8baf-f3ca50865e66';

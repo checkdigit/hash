@@ -1,7 +1,7 @@
 // uuid-v5.ts
 
 /*
- * Copyright (c) 2021-2024 Check Digit, LLC
+ * Copyright (c) 2021-2025 Check Digit, LLC
  *
  * This code is derived from https://github.com/uuidjs/uuid,
  * licensed under the MIT license (see below for details).
@@ -35,25 +35,30 @@ function parse(namespace: string) {
   const intArray = new Uint8Array(16);
 
   // Parse ########-....-....-....-............
+  // eslint-disable-next-line sonarjs/no-nested-assignment
   intArray[0] = (value = Number.parseInt(namespace.slice(0, 8), 16)) >>> 24;
   intArray[1] = (value >>> 16) & 0xff;
   intArray[2] = (value >>> 8) & 0xff;
   intArray[3] = value & 0xff;
 
   // Parse ........-####-....-....-............
-  intArray[4] = (value = Number.parseInt(namespace.slice(9, 13), 16)) >>> 8;
+  value = Number.parseInt(namespace.slice(9, 13), 16);
+  intArray[4] = value >>> 8;
   intArray[5] = value & 0xff;
 
   // Parse ........-....-####-....-............
+  // eslint-disable-next-line sonarjs/no-nested-assignment
   intArray[6] = (value = Number.parseInt(namespace.slice(14, 18), 16)) >>> 8;
   intArray[7] = value & 0xff;
 
   // Parse ........-....-....-####-............
+  // eslint-disable-next-line sonarjs/no-nested-assignment
   intArray[8] = (value = Number.parseInt(namespace.slice(19, 23), 16)) >>> 8;
   intArray[9] = value & 0xff;
 
   // Parse ........-....-....-....-############
   // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
+  // eslint-disable-next-line sonarjs/no-nested-assignment
   intArray[10] = ((value = Number.parseInt(namespace.slice(24, 36), 16)) / 0x1_00_00_00_00_00) & 0xff;
   intArray[11] = (value / 0x1_00_00_00_00) & 0xff;
   intArray[12] = (value >>> 24) & 0xff;
@@ -65,6 +70,7 @@ function parse(namespace: string) {
 }
 
 export default function (value: string, namespace: string): string {
+  // eslint-disable-next-line sonarjs/hashing
   const buffer = createHash('sha1').update(parse(namespace)).update(value).digest();
   // note that undefined is treated as 0 by the & operator
   buffer[6] = ((buffer[6] ?? 0) & 0x0f) | 0x50;
