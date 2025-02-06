@@ -6,8 +6,8 @@ These versions of @checkdigit/hash are currently being supported with security u
 
 | Version | Supported          |
 | ------- | ------------------ |
-| > 2.x   | :white_check_mark: |
-| < 2.0   | :x:                |
+| > 4.x   | :white_check_mark: |
+| < 4.0   | :x:                |
 
 ## Reporting a Vulnerability
 
