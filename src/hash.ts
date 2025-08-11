@@ -18,5 +18,8 @@ export const HASH_NAMESPACE = 'f25d4515-fea7-44c7-8baf-f3ca50865e66';
  */
 
 export default function (value: string): string {
-  return uuidV5(createHash('sha512').update(value).digest('base64'), HASH_NAMESPACE);
+  return uuidV5(
+    createHash('sha512').update(value).digest('base64'),
+    HASH_NAMESPACE,
+  );
 }
