@@ -18,7 +18,16 @@ Always reference these instructions first and fallback to search or bash command
   tar -xJf node.tar.xz
   export PATH=$PWD/node-v22.12.0-linux-x64/bin:$PATH
   node --version  # Should show v22.12.0 or higher
-  ```
+- **Install Node.js 22.12.0 or later**:
+
+  > **Note:** The following instructions are for Linux x64. For other platforms (Windows, macOS, ARM), please refer to the [official Node.js installation guide](https://nodejs.org/en/download/) for platform-specific instructions.
+
+  **Linux x64 example:**
+  ```bash
+  curl -fsSL https://nodejs.org/dist/v22.12.0/node-v22.12.0-linux-x64.tar.xz -o node.tar.xz
+  tar -xJf node.tar.xz
+  export PATH=$PWD/node-v22.12.0-linux-x64/bin:$PATH
+  node --version  # Should show v22.12.0 or higher
 - **Install dependencies**:
   ```bash
   npm ci --ignore-scripts
