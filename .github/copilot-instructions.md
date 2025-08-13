@@ -171,7 +171,7 @@ If ESLint reports many errors in unexpected files:
 
 ### Build Artifacts
 
-Build creates `dist-types/` and `dist-mjs/` directories. These are included in published package but should not be committed to git.
+Build creates `dist-types/` and `dist-mjs/` directories. These are included in the published package but should not be committed to git; ensure these directories are listed in `.gitignore` so they are properly excluded.
 
 ## Timing Expectations
 
