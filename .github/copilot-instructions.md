@@ -6,7 +6,9 @@ Always reference these instructions first and fallback to search or bash command
 
 ## Critical Requirements
 
-**REQUIRED NODE.JS VERSION**: This project requires Node.js 22.11 or higher for the `--experimental-strip-types` feature. The CI pipeline runs on Node.js 22.x and 23.x.
+**REQUIRED NODE.JS VERSION**: This project requires Node.js 22.11 or higher for the `--experimental-strip-types` feature. The CI pipeline runs on Node.js 22.x and 24.x.
+
+**MANDATORY MULTI-RUNTIME TESTING**: All validation and testing (manual, CI, and distribution) must be performed with both Node.js 22.x and Node.js 24.x runtimes to ensure compatibility and reliability across supported versions.
 
 ## Working Effectively
 
