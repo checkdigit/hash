@@ -14,19 +14,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['22.x', '23.x']
+        node-version: ['24.x', '26.x']
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Install Dependencies
         run: npm ci --ignore-scripts
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Compile
         run: npm run ci:compile
       - name: Check Code Style
@@ -41,21 +39,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['22.x', '23.x']
+        node-version: ['24.x', '26.x']
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Install Dependencies
         run: npm ci --ignore-scripts
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Compile
         run: npm run ci:compile
       - name: Check Code Style
